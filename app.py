@@ -1,7 +1,23 @@
+import os
 from config import RESUME_FOLDER
 from matcher import match_resume
 from parser import parse_job_description, parse_resume
 from reader import read_resume
+
+jd_folder = "job_descriptions"
+
+jd_files = os.listdir(jd_folder)
+
+print("\nAvailable Job Descriptions:\n")
+
+for i, file in enumerate(jd_files, start=1):
+    print(f"{i}. {file}")
+
+choice = int(input("\nEnter your choice: "))
+
+selected_file = jd_files[choice - 1]
+
+print(f"\nSelected Job Description: {selected_file}")
 
 JOB_DESCRIPTION = """
 We are hiring a Backend Python Developer.
